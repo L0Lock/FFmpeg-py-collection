@@ -18,11 +18,11 @@ A collection of python files for some usefull ffmpeg conversions.
 - Register ffmpeg, ffprobe & ffplay to environment variables
 
 <details>
-<summary>**Through command lines:**</summary>
+<summary><b>Through command lines:</b></summary>
   
-  - Hit the windows key, write down `cmd` and press <kbd>Enter</kbd>
+  - Hit the windows key, write down `cmd` and press <kbd>&#9166; Enter</kbd>
   
-  - enter the following command, line after line:
+  - Enter the following command, line after line:
     
     ```
     set ffmpeg=C:\ffmpeg\bin
@@ -31,12 +31,11 @@ A collection of python files for some usefull ffmpeg conversions.
     ```
 </details>
 
-
 <details>
-<summary>**Through user interface:**</summary>
+<summary><b>Through user interface:</b></summary>
 
-- do the following:
-  
+Do the following:
+
   ```
   My Computer
   Environment variables
@@ -59,4 +58,4 @@ A collection of python files for some usefull ffmpeg conversions.
 
 ### General usage
 
-Drag and drop your media file onto the .py file with the desired effect. Type in the desired framerate when asked, and press <kbd>Enter</kbd>. Pressing <kbd>Enter</kbd> without typing a framerate will result in the default 24 fps.
+Drag and drop your media file onto the .py file with the desired effect. Type in the desired framerate when asked, and press <kbd>&#9166; Enter</kbd>. Pressing <kbd>&#9166; Enter</kbd> without typing a framerate will result in the default 24 fps.
