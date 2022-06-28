@@ -16,7 +16,9 @@ A collection of python files for some usefull ffmpeg conversions.
  - Browse in the archive up to the `bin` subfolder containing ffmpeg, ffprobe and ffplay executables. Uncompress the `bin` folder (in this example we'll use `C:\ffmpeg\bin`
 
 - Register ffmpeg, ffprobe & ffplay to environment variables
-  **Through command lines:**
+
+<details>
+<summary>**Through command lines:**</summary>
   
   - Hit the windows key, write down `cmd` and press <kbd>Enter</kbd>
   
@@ -27,8 +29,11 @@ A collection of python files for some usefull ffmpeg conversions.
     set ffprobe=C:\ffmpeg\bin
     set ffplay=C:\ffmpeg\bin
     ```
-  
-  **Through user interface:**
+</details>
+
+
+<details>
+<summary>**Through user interface:**</summary>
 
 - do the following:
   
@@ -47,6 +52,7 @@ A collection of python files for some usefull ffmpeg conversions.
   Ok
   Ok
   ```
+</details>
 </details>
 
 ## How to use
