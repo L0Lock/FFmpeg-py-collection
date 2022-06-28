@@ -1,6 +1,6 @@
-import sys, subprocess, time, os
+import sys, subprocess, time, os, shutil
 
-FFMPEG_PATH = "./ffmpeg/ffmpeg"
+# FFMPEG_PATH = "./ffmpeg/ffmpeg"
 
 def encode_video(droppedFilePath, outputPath, framerate, crf=21, preset="ultrafast"):
 
@@ -10,7 +10,7 @@ def encode_video(droppedFilePath, outputPath, framerate, crf=21, preset="ultrafa
 	ffmpeg_cmd += ' -r {0}'.format(framerate)
 
 	ffmpeg_cmd += ' -c:v libx264 -crf {0} -preset {1}'.format(crf, preset)
-	ffmpeg_cmd += ' -c:a aac -filter_complex "[1:0] apad" -shortest'
+	ffmpeg_cmd += ' -c:a aac'
 
 	ffmpeg_cmd += ' {0}'.format(outputPath)
 
@@ -19,10 +19,26 @@ def encode_video(droppedFilePath, outputPath, framerate, crf=21, preset="ultrafa
 
 if __name__ == "__main__":
 
+	### Checking FFmpeg installation
+
+	FFMPEG_PATH = shutil.which('ffmpegu') or './ffmpeg/ffmpeg'
+	try:
+	    subprocess.run([FFMPEG_PATH, '-version'], check=True)  # ensure ffmpeg is available
+	except:
+	    print("FFmpeg not found!")
+	    input()
+	    sys.exit(1)
+
+	### Get dragndroped file and add file output suffix
 	droppedFilePath = sys.argv[1]
+	# droppedFilePath = "testVid.mp4"
 	outputPath = droppedFilePath.rsplit(".",1)[0]+"__"+time.strftime("%Y-%m-%d_%H-%M-%S")+'.mp4'
 	
+	### FRAMERATE SETUP ###
 	framerate = input("Type the desired Framerate:")
 	if framerate == "": framerate = 24
+	# framerate = 24
 
+	### Run main fun
 	encode_video(droppedFilePath, outputPath, framerate)
+	input()
