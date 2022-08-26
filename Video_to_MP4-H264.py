@@ -3,7 +3,7 @@ import sys, subprocess, time, os, shutil
 # FFMPEG_PATH = "./ffmpeg/ffmpeg"
 
 # text formatting
-class colors:
+class cmdUtils:
     Purple = '\033[95m'
     Blue = '\033[94m'
     Cyan = '\033[96m'
@@ -17,17 +17,17 @@ class colors:
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
-def encode_video(droppedFilePath, outputPath, framerate, crf=21, preset="ultrafast"):
+def encode_video(droppedFile, outputPath, framerate, crf=21, preset="ultrafast"):
 
 	ffmpeg_cmd = FFMPEG_PATH
 	ffmpeg_cmd += ' -y'
-	ffmpeg_cmd += ' -i "{0}"'.format(droppedFilePath)
-	ffmpeg_cmd += ' -r {0}'.format(framerate)
+	ffmpeg_cmd += f' -i "{droppedFile}"'
+	ffmpeg_cmd += f' -r {framerate}'
 
-	ffmpeg_cmd += ' -c:v libx264 -crf {0} -preset {1}'.format(crf, preset)
+	ffmpeg_cmd += f' -c:v libx264 -crf {crf} -preset {preset}'
 	ffmpeg_cmd += ' -c:a aac'
 
-	ffmpeg_cmd += ' "{0}"'.format(outputPath)
+	ffmpeg_cmd += f' "{outputPath}"'
 
 	print(ffmpeg_cmd)
 	subprocess.call(ffmpeg_cmd)
@@ -40,23 +40,26 @@ if __name__ == "__main__":
 	try:
 	    subprocess.run([FFMPEG_PATH, '-version'], check=True)  # ensure ffmpeg is available
 	except:
-	    print(f"{colors.Red}FFmpeg not found!{colors.Grey}")
+	    print(f'{cmdUtils.Red}Error: Couldn\'t find FFMPEG.{cmdUtils.Grey}')
 	    input()
 	    sys.exit(1)
 
-	### Get dragndroped file and add file output suffix
-	droppedFilePath = sys.argv[1]
-	# droppedFilePath = "./testSubjects/testVid.mp4"
-	outputPath = droppedFilePath.rsplit(".",1)[0]+"__"+time.strftime("%Y-%m-%d_%H-%M-%S")+'.mp4'
-	
 	### FRAMERATE SETUP ###
 	cls()
 	framerate = input("Type the desired Framerate:")
 	if framerate == "": framerate = 24
 	# framerate = 24
 
-	### Run main fun
-	encode_video(droppedFilePath, outputPath, framerate)
+	### Get dragndroped file and add file output suffix
+	droppedFile = sys.argv[1]
+	print(f'{cmdUtils.Green}Detected input file : {droppedFile}{cmdUtils.Grey}')
 
-	print(f"{colors.Green}Encoding succesful. This window will close after 10 seconds.{colors.Grey}")
+	outputPath = f'{droppedFile.rsplit(".",1)[0]}__{time.strftime("%Y-%m-%d_%H-%M-%S")}.mp4'
+	print(f'{cmdUtils.Green}Output file will be: {outputPath}{cmdUtils.Grey}')
+
+	### Run main fun
+	encode_video(droppedFile, outputPath, framerate)
+
+	print(cmdUtils.Sound)
+	print(f"{cmdUtils.Green}Encoding succesful. This window will close after 10 seconds.{cmdUtils.Grey}")
 	subprocess.call('timeout /t 10')
