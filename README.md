@@ -59,3 +59,22 @@ Do the following:
 ### General usage
 
 Drag and drop your media file onto the .py file with the desired effect. Type in the desired framerate when asked, and press <kbd>&#9166; Enter</kbd>. Pressing <kbd>&#9166; Enter</kbd> without typing a framerate will result in the default 24 fps.
+
+### Adding Cover
+
+Same general usage, but:
+- your picture file must be named `cover.jpg` and in the same folder as the source video.
+
+![demo covers](https://github.com/L0Lock/FFmpeg-py-collection/blob/main/assets/img/covers_demo.jpg)
+
+Do check those links first:
+
+ - [Enabling cover thumbnails on your system](https://codecalamity.com/guides/video-thumbnails/)
+ - [Cover variants](https://www.matroska.org/technical/attachments.html):
+
+FileName | Image Orientation | Pixel Length of Smallest Side
+-- | -- | --
+cover.jpg | Portrait or square | 600
+small_cover.png | Portrait or square | 120
+cover_land.png | Landscape | 600
+small_cover_land.jpg | Landscape | 120
