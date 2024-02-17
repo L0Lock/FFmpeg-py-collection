@@ -1,6 +1,6 @@
 # FFmpeg-py-collection
 
-[![GitHub license](https://img.shields.io/github/license/L0Lock/ffmpeg-py-collection)](https://github.com/L0Lock/FFmpeg-py-collection/blob/master/LICENSE)  [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H818FHX)
+[![GitHub license](https://img.shields.io/github/license/L0Lock/ffmpeg-py-collection?style=for-the-badge)](https://github.com/L0Lock/FFmpeg-py-collection/blob/master/LICENSE)  [![ko-fi](https://github.com/L0Lock/convertRotationMode/raw/main/Prez/SupportOnKofi.jpg)](https://ko-fi.com/H2H818FHX)
 
 A collection of python files for some usefull ffmpeg conversions.
 
