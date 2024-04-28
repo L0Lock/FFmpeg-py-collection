@@ -8,50 +8,34 @@ A collection of python files for some usefull ffmpeg conversions.
 ## Installation
 
 - Download the [latest release](https://github.com/L0Lock/FFmpeg-py-collection/releases/latest) and unpack it wherever you want.
-- If you don't have FFmpeg already, download the [lastest "static" ffmpeg pack](https://ffmpeg.zeranoe.com/builds/). You can either put the ffmpeg executables in the repository's `ffmpeg` folder, or register ffmpeg to your operating system.
+- If you don't have FFmpeg already, download the [lastest "static" ffmpeg pack](https://ffmpeg.zeranoe.com/builds/). You can either put the ffmpeg executables in the repository's `ffmpeg` folder, or register ffmpeg's path to your operating system (**recommended!**).
 
 <details>
-  <summary>Click to expand: How to register ffmpeg in Windows</summary>
+  <summary>Click to expand: <b>How to register ffmpeg in Windows</b></summary>
 
- - Browse in the archive up to the `bin` subfolder containing ffmpeg, ffprobe and ffplay executables. Uncompress the `bin` folder (in this example we'll use `C:\ffmpeg\bin`
+ - Browse in the archive up to the `bin` subfolder containing ffmpeg, ffprobe and ffplay executables. Uncompress the `bin` folder where you want. This guide will use: `C:\ffmpeg\bin`
 
 - Register ffmpeg, ffprobe & ffplay to environment variables
 
-<details>
-<summary><b>Through command lines:</b></summary>
+  **Through command line (fastest):**
   
-  - Hit the windows key, write down `cmd` and press <kbd>&#9166; Enter</kbd>
+  - Open the terminal (press <kbd>![Windows key](http://i.imgur.com/AAjIi.png)</kbd><kbd>X</kbd> and click `Terminal`)
+  - enter the following command:
+    ```bash
+    setx PATH "%PATH%;C:\ffmpeg\bin"
+    ```
   
-  - Enter the following command, line after line:
-    
-    ```
-    set ffmpeg=C:\ffmpeg\bin
-    set ffprobe=C:\ffmpeg\bin
-    set ffplay=C:\ffmpeg\bin
-    ```
-</details>
+  **Through user interface:**
 
-<details>
-<summary><b>Through user interface:</b></summary>
+  - Startmenu Search: "Edit Environment Variables for your account"
+  - <kbd>Environment variables</kbd>
+  - Under "User variables for \<username\>", find and double-click "Path" 
+  - <kbd>New</kbd>
+  - Type in `C:\ffmpeg\bin` and <kbd>&#9166; Enter</kbd>
+  - <kbd>Ok</kbd>
+  - <kbd>Ok</kbd>
+  - <kbd>Ok</kbd>
 
-Do the following:
-
-  ```
-  My Computer
-  Environment variables
-  Add
-  Name: ffmpeg
-  Value: C:\ffmpeg\bin
-  Add
-  Name: ffprobe
-  Value: C:\ffmpeg\bin
-  Add
-  Name: ffplay
-  Value: C:\ffmpeg\bin
-  Ok
-  Ok
-  ```
-</details>
 </details>
 
 ## How to use
